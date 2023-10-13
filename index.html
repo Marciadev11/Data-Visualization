@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+        <script src="https://cdn.jsdelivr.net/npm/vega@5.25.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.16.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.22.2"></script>
+
+        <style media="screen">
+          /* Add space between Vega-Embed links  */
+          .vega-actions a {
+            margin-right: 5px;
+          }
+        </style>
+        <title>Vegalite Website</title> 
+    </head>
+    <body>
+      <div class="main_box">
+        <div class="container-lg">
+          <div class="row justify-content-center">
+            <div class="co-md-5 text-center text-md-start">
+              <h2 class="text-primary text-center">
+                Life Expectancy in South East Asian Countries
+              </h2>
+
+              <h3 class="text-secondary text-center">
+                Data Visualisation by Marcia Devina Susanto
+              </h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="container-lg">
+          <p>
+            Due to the advancement of technology and medicine, the global life expectancy has increased by more than 6 years
+            between 2000 and 2019 (WHO,2019). However, there are also other factors related to the increase in life expectancy that vary
+            between different countries. Many of these factors are related to the economic status of a country and  government funding 
+            towards healthcare. The focus of this visualization is the life expectancy of South East Asian countries. 
+          </p>
+        </div>
+
+        <div class="container-lg">
+          <div class="d-flex align-items-center justify-content-center" id="map"></div>
+          <script type="text/javascript">
+            var worldMap = "js/world_map.vg.json";
+            vegaEmbed('#map', worldMap).then(function(result) {
+              // Access
+            }).catch(console.error);
+          </script>
+          <br>
+          According to the World Bank (1990), the average life expectancy in the world as of 1990 is 65 years old. 
+          The map graph above shows the life expectancy around the world in 2015. Most of the countries in the
+          continent America, Asia, Europe and Australia have a life expectancy greater than 60 years old. However, some
+          countries in the continent of Africa have a lower life expectancy which is below than 60 years old. 
+        </div>
+
+        <br><br>
+
+        <div class="container-lg">
+          <div class="subheader">
+            <h4>Economic Status and Life Expectancy</h4>
+          </div>
+          <table class="table-responsive">
+            <tr>
+              <td>
+                <div class="d-flex" id="bubble_plot"></div>
+              </td>
+              <td style="vertical-align: top;">
+                <p>The South East Asian countries are labeled and are in the color blue in the graph and other countries of the 
+                    world are in light gray. As can be seen in the graph on the left, there seems to be a positive correlation 
+                    between a country's economic status, which is measure by the human development index and GDP, and its average
+                    life expectancy. Across the different years, the graph shows that when there is a high HDI there is an increase 
+                    in life expectancy in the country because the higher HDI indicates a higher standard of living. Furthermore, the
+                    graph also shows that countries with a higher GDP have greater life expectancy compared to countries with a lower
+                    GDP. The graph also shows that through the year 2000 until 2015, HDI and Life expectancy have increased. 
+
+                  <br><br>
+
+                  South-East Asian countries are labeled and colored blue in the graph.
+                </p>
+              </td>
+            </tr>
+          </table>
+
+        <script type="text/javascript">
+          var bubblePlot = "js/bubble_plot.vg.json";
+          vegaEmbed('#bubble_plot', bubblePlot).then(function(result) {
+            // Access
+          }).catch(console.error);
+        </script>
+        </div>
+
+        <br><br>
+
+        <div class="container-lg">
+          <div class="subheader">
+            <h4>Government Expenditure On Healthcare in South East Asian countries</h4>
+          </div>
+          <table class="table-responsive">
+            <tr>
+              <td style="vertical-align: top;">
+                <p>
+                  Government expenditure on healthcare are some efforts that can help increase life expectancy in the country. 
+                  The health expenditure used in this graph is expressed as a percentage of GDP. In most Southeast asian countries 
+                  health expenditures have been slightly increasing over the years. However, Cambodia's health expenditure has 
+                  been the highest over the years compared to other ASEAN countries but faced a drop in 2007 which is mainly due 
+                  to political tensions. In 2007, Cambodia held its communal election which was won by prime minister Hun Sen which 
+                  caused political tension as problems with dispossession on land and inequality arose (Hughes, 2008). While Timor 
+                  Leste has the lowest health expenditure over the years which may be due to instability. According to The Independent 
+                  Evaluation Group (2011), in the year 2000 to 2010, Timor-Leste is still faced with the challenge of economic instability, 
+                  limited human capacity and political tensions as they have just achieved independence in 2002. 
+
+                </p>
+              </td>
+              <td>
+                <div class="d-flex" id="line_graph"></div>
+              </td>
+            </tr>
+          </table>
+
+          <script type="text/javascript">
+            var lineGraph = "js/line_graph.vg.json";
+            vegaEmbed('#line_graph', lineGraph).then(function(result) {
+              // Access
+            }).catch(console.error);
+          </script>
+        </div>
+
+        <br><br>
+
+        <div class="container-lg">
+          <div class="subheader">
+            <h4>Adult Mortality Rate in South East Asian Countries compared to European countries</h4>
+          </div>
+          <div class="d-flex align-items-center justify-content-center" id="bar_graph"></div>
+          <br><br>
+
+          <p>
+            From the graph, it shows that, on average, South East Asian countries have a higher adult mortality rate compared
+            to European countries. This may be due to other factors such as diseases, climate, crime rates and quality of health care. 
+            Among the South East Asian countries, the Philippines has the highest adult mortality with 219 deaths of people between the 
+            age of 15 to 60 years old per 1000 population. Following it is Indonesian with 189 deaths and then Cambodia with 273 deaths. 
+            Siangpore has the lowest adult mortality rate with only 73 deaths of people between the age of 15 to 60 years old per 1000 
+            population which makes sense as they are the South East Asian country with the highest life expectancy. 
+          </p>
+
+          <script type="text/javascript">
+          var barGraph = "js/bar_graph.vg.json";
+          vegaEmbed('#bar_graph', barGraph).then(function(result) {
+            // Access
+          }).catch(console.error);
+          </script>
+        </div>
+        
+      </div>
+      
+      <script src="js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
