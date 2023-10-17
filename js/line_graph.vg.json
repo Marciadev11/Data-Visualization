@@ -1,0 +1,42 @@
+{
+    "width": 470,
+    "height": 300,
+    "title": "Government Expenditure on Health as part of Total Expenditure in South-East Asian Countries",
+    "data": {
+      "url": "https://raw.githubusercontent.com/Marciadev11/Data-Visualization-Assignment-2/main/data/Life_Expectancy_Data.csv"
+    },
+    "transform": [
+      {"filter": "datum.Country == ['Indonesia'] || datum.Country == ['Singapore'] || datum.Country == ['Malaysia'] || datum.Country == ['Philippines'] || datum.Country == ['Thailand'] || datum.Country == ['Cambodia'] || datum.Country == ['Timor-Leste'] || datum.Country == ['Brunei Darussalam'] || datum.Country == ['Myanmar']"},
+      {"filter": "datum['Total expenditure'] != 0"}
+    ],
+    "encoding": {
+      "x": {"field": "Year", "type": "temporal"},
+      "y": {"field": "Total expenditure", "type": "quantitative", "title": "Government expenditure on health (%)"}
+    },
+    "layer": [
+      {
+        "mark": "line",
+        "params": [
+          {"name": "hover", "select": {"type": "point", "on": "mouseover"}}
+        ],
+        "encoding": {
+          "color": {"field": "Country", "type": "nominal"},
+          "opacity": {"condition": {"param": "hover", "value": 1}, "value": 0.3},
+          "tooltip": [{"field": "Country", "type": "nominal"}]
+        }
+      },
+      {
+        "mark": "circle",
+        "encoding": {
+          "color": {"field": "Country", "type": "nominal"},
+          "opacity": {"condition": {"param": "hover", "value": 1}, "value": 0.3},
+          "tooltip": [
+            {"field": "Country", "type": "nominal"},
+            {"field": "Year", "type": "temporal"},
+            {"field": "Population", "type": "quantitative"},
+            {"field": "Life expectancy", "type": "quantitative"}
+          ]
+        }
+      }
+    ]
+  }
